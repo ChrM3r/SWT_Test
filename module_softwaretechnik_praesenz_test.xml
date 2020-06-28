@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_softwaretechnik_praesenz_test" default="compile.module.softwaretechnik_praesenz_test">
+  <dirname property="module.softwaretechnik_praesenz_test.basedir" file="${ant.file.module_softwaretechnik_praesenz_test}"/>
+  
+  <property name="module.jdk.home.softwaretechnik_praesenz_test" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.softwaretechnik_praesenz_test" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.softwaretechnik_praesenz_test" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.softwaretechnik_praesenz_test" value="-encoding UTF-8 -source 13 -target 13 ${compiler.args}"/>
+  
+  <property name="softwaretechnik_praesenz_test.output.dir" value="${module.softwaretechnik_praesenz_test.basedir}/out/production/Softwaretechnik_Praesenz_Test"/>
+  <property name="softwaretechnik_praesenz_test.testoutput.dir" value="${module.softwaretechnik_praesenz_test.basedir}/out/test/Softwaretechnik_Praesenz_Test"/>
+  
+  <path id="softwaretechnik_praesenz_test.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="softwaretechnik_praesenz_test.module.production.classpath">
+    <path refid="${module.jdk.classpath.softwaretechnik_praesenz_test}"/>
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    <path refid="library.mockito-core-3.3.3.classpath"/>
+    <path refid="library.byte-buddy-1.10.10.classpath"/>
+    <path refid="library.objenesis-3.1.classpath"/>
+    <path refid="library.byte-buddy-agent-1.10.10.classpath"/>
+  </path>
+  
+  <path id="softwaretechnik_praesenz_test.runtime.production.module.classpath">
+    <pathelement location="${softwaretechnik_praesenz_test.output.dir}"/>
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    <path refid="library.mockito-core-3.3.3.classpath"/>
+    <path refid="library.byte-buddy-1.10.10.classpath"/>
+    <path refid="library.objenesis-3.1.classpath"/>
+    <path refid="library.byte-buddy-agent-1.10.10.classpath"/>
+  </path>
+  
+  <path id="softwaretechnik_praesenz_test.module.classpath">
+    <path refid="${module.jdk.classpath.softwaretechnik_praesenz_test}"/>
+    <pathelement location="${softwaretechnik_praesenz_test.output.dir}"/>
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    <path refid="library.mockito-core-3.3.3.classpath"/>
+    <path refid="library.byte-buddy-1.10.10.classpath"/>
+    <path refid="library.objenesis-3.1.classpath"/>
+    <path refid="library.byte-buddy-agent-1.10.10.classpath"/>
+  </path>
+  
+  <path id="softwaretechnik_praesenz_test.runtime.module.classpath">
+    <pathelement location="${softwaretechnik_praesenz_test.testoutput.dir}"/>
+    <pathelement location="${softwaretechnik_praesenz_test.output.dir}"/>
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.12/junit-4.12.jar"/>
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+    <path refid="library.mockito-core-3.3.3.classpath"/>
+    <path refid="library.byte-buddy-1.10.10.classpath"/>
+    <path refid="library.objenesis-3.1.classpath"/>
+    <path refid="library.byte-buddy-agent-1.10.10.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.softwaretechnik_praesenz_test">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.softwaretechnik_praesenz_test">
+    <patternset refid="excluded.from.module.softwaretechnik_praesenz_test"/>
+  </patternset>
+  
+  <path id="softwaretechnik_praesenz_test.module.sourcepath">
+    <dirset dir="${module.softwaretechnik_praesenz_test.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.softwaretechnik_praesenz_test" depends="compile.module.softwaretechnik_praesenz_test.production,compile.module.softwaretechnik_praesenz_test.tests" description="Compile module Softwaretechnik_Praesenz_Test"/>
+  
+  <target name="compile.module.softwaretechnik_praesenz_test.production" depends="register.custom.compilers" description="Compile module Softwaretechnik_Praesenz_Test; production classes">
+    <mkdir dir="${softwaretechnik_praesenz_test.output.dir}"/>
+    <javac2 destdir="${softwaretechnik_praesenz_test.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.softwaretechnik_praesenz_test}/javac">
+      <compilerarg line="${compiler.args.softwaretechnik_praesenz_test}"/>
+      <bootclasspath refid="softwaretechnik_praesenz_test.module.bootclasspath"/>
+      <classpath refid="softwaretechnik_praesenz_test.module.production.classpath"/>
+      <src refid="softwaretechnik_praesenz_test.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.softwaretechnik_praesenz_test"/>
+    </javac2>
+    
+    <copy todir="${softwaretechnik_praesenz_test.output.dir}">
+      <fileset dir="${module.softwaretechnik_praesenz_test.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.softwaretechnik_praesenz_test.tests" depends="register.custom.compilers,compile.module.softwaretechnik_praesenz_test.production" description="compile module Softwaretechnik_Praesenz_Test; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.softwaretechnik_praesenz_test" description="cleanup module">
+    <delete dir="${softwaretechnik_praesenz_test.output.dir}"/>
+    <delete dir="${softwaretechnik_praesenz_test.testoutput.dir}"/>
+  </target>
+
+</project>
