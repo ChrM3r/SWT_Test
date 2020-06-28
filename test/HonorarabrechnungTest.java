@@ -44,7 +44,7 @@ public class HonorarabrechnungTest {
     public void maxTest(){
 
         StringBuilder sb = new StringBuilder();
-        double maxInteger = Integer.MAX_VALUE;
+        double maxInteger  = Integer.MAX_VALUE;
         for (double i = 0; i <= maxInteger +1  ; i++)
             sb.append("a");
 
