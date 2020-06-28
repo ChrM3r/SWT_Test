@@ -12,8 +12,8 @@ public class Honorarabrechnung {
         System.out.println("Honorarabrechner");
         System.out.println("Geben Sie den zu vergütenen Text ein: ");
 
-        userText = scanner.nextLine();
-
+        //userText = scanner.nextLine();
+        userText = "Testtext";
         System.out.println("Ihr Honorar in EUR: " + new Honorarabrechnung().honorarBerechnen(userText));
         System.out.println("Anzahl der Bilder im Text: " + new Honorarabrechnung().bilderZaehlen(userText));
     }

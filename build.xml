@@ -193,7 +193,8 @@
   <!-- Modules -->
   
   <import file="${basedir}/module_softwaretechnik_praesenz_test.xml"/>
-  
+
+
   <target name="init" description="Build initialization">
     <!-- Perform any build initialization in this target -->
   </target>
@@ -202,7 +203,7 @@
   
   <target name="build.modules" depends="init, clean, compile.module.softwaretechnik_praesenz_test" description="build all modules"/>
   
-  <target name="all" depends="build.modules" description="build all"/>
+  <target name="all" depends="build.modules, junit, jar, javadoc, run" description="build all"/>
 
   <target name="jar" depends="build.modules">
     <jar destfile="${outLocation}/honorarabrechnung.jar" basedir="${outLocation}">
